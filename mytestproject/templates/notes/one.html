@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<a href="{% url 'notes' %}">В заметки</a>
+<h1>Заметка № {{ note_html.id }}</h1>
+<h2>Заголовок: {{ note_html.title }}</h2>
+<p>{{ note_html.body }}</p>
+<a href="{% url 'update' note_html.id %}">Изменить заметку</a>
+<a href="{% url 'delete' note_html.id %}">Удалить заметку</a>
+{% endblock %}

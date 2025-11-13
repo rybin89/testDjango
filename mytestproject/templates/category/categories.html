@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <ul>
+    {% for category in categories %}
+        <li>
+            <a href="{% url 'category' category.id %}">Перейти в категорию</a>
+            <p>{{ category.category }}</p>
+            <p>{{ category.description }}</p>
+
+        </li>
+    {% endfor%}
+    </ul>
+{% endblock %}
