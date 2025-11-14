@@ -32,7 +32,7 @@ def note_create(request):
             return redirect('notes')
     else:
         form = NoteForm()
-    return render(request,'notes/forms.html',{
+    return render(request,'notes/forms.py.html',{
         'form': form, 'title_page' : 'Создать заметку'
     })
 
@@ -46,7 +46,7 @@ def update(request,note_id):
             return redirect('one_note', note_id=note.id)
     else:
         form = NoteForm(instance=note)
-    return render(request,'notes/forms.html',{
+    return render(request,'notes/forms.py.html',{
         'form':form, 'title_page' : 'Изменить заметку'
     })
 

@@ -30,7 +30,7 @@ def add(request):
             return redirect('categories')
     else:
         form = CategoryForm()
-    return render(request,'category/forms.html',{
+    return render(request,'category/forms.py.html',{
         'form':form, 'title_page': 'Создать Категорию'
     })
 # Обновить
@@ -43,6 +43,6 @@ def update(request,id):
             return redirect('category',id=id)
     else:
         form = CategoryForm(instance=category)
-    return render(request,'category/forms.html',{
+    return render(request,'category/forms.py.html',{
         'form':form, 'title_page': 'Изменить Категорию'
     })
