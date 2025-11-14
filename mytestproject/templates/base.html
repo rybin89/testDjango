@@ -8,6 +8,11 @@
     <title>Тестовый проекто - Заметки</title>
 </head>
 <body>
+<header>
+        <a href="{% url 'notes' %}">Заметки</a>
+        <a href="{% url 'categories' %}">Категории</a>
+        <a href="{% url 'logout' %}">Выход</a>
+</header>
     {% block content %}
     {% endblock %}
 </body>

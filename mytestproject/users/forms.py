@@ -34,9 +34,11 @@ class LoginForm(forms.Form):
                 username=username,
                 password = password
             )
-            if self.user is not None or self.user.is_active:
+            if self.user is None:
+                raise forms.ValidationError('Не верный логин или пароль')
+            if self.user.is_active:
                 return self.user
-            else:
-                return None
+
+
 
         return cleaned_data

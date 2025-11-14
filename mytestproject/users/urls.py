@@ -19,4 +19,5 @@ from . import views
 urlpatterns = [
     path('',views.login_user, name='login' ), # маршрут для входа в систему
     path('users/',views.get, name='users' ), # маршрут для входа в систему
+    path('logout/',views.logout_user, name='logout' ), # маршрут для входа в систему
     ]

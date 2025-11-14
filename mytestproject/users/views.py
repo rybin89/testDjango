@@ -1,4 +1,4 @@
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from .models import User
@@ -8,9 +8,11 @@ from .forms import LoginForm
 def get(request):
     users = User.objects.all()
     return HttpResponse(users)
+
 def login_user(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
+
         if form.is_valid():
             user = form.user
             login(request,user)
@@ -18,3 +20,6 @@ def login_user(request):
     else:
         form = LoginForm()
     return render(request,'users/login.html',{'form':form})
+def logout_user(request):
+    logout(request)
+    return redirect('login')
